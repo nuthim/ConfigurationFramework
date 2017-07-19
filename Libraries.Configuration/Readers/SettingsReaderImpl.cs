@@ -45,7 +45,8 @@ namespace Libraries.Configuration.Readers
 
         public T Read<T>(string key)
         {
-            if (Read(key, out T result))
+            T result;
+            if (Read(key, out result))
                 return result;
 
             return OnKeyMissing<T>(key);
@@ -53,7 +54,8 @@ namespace Libraries.Configuration.Readers
 
         public T Read<T>(string key, T defaultValue)
         {
-            if (Read(key, out T result))
+            T result;
+            if (Read(key, out result))
                 return result;
 
             return OnKeyMissing(key, defaultValue, _converter.ConvertFrom<T>(defaultValue));
@@ -116,7 +118,8 @@ namespace Libraries.Configuration.Readers
 
             result = default(T);
 
-            if (GetValue(GetKey(key), out string value))
+            string value;
+            if (GetValue(GetKey(key), out value))
             {
                 result = _converter.ConvertTo<T>(value);
                 return true;

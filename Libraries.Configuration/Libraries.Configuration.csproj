@@ -57,7 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Readers\SettingsReaderImpl.cs" />
     <Compile Include="SettingsFactory.cs" />
-    <Compile Include="SettingsReaderExtensions.cs" />
+    <Compile Include="Extensions\SettingsReaderExtensions.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

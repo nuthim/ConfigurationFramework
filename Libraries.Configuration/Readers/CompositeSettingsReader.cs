@@ -41,7 +41,8 @@ namespace Libraries.Configuration.Readers
 
         public T Read<T>(string key)
         {
-            if (TryReadKey(key, out T value))
+            T value;
+            if (TryReadKey(key, out value))
                 return value;
 
             return OnKeyMissing<T>(key);
@@ -49,7 +50,8 @@ namespace Libraries.Configuration.Readers
 
         public T Read<T>(string key, T defaultValue)
         {
-            if (TryReadKey(key, out T value))
+            T value;
+            if (TryReadKey(key, out value))
                 return value;
 
             //Give all readers an opportunity to handle the default value

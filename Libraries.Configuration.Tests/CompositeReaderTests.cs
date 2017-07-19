@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Libraries.Configuration.Providers;
 using Libraries.Configuration.Readers;
 using Libraries.Configuration.Converters;
+using Libraries.Configuration.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 

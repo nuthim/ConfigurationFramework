@@ -50,7 +50,8 @@ namespace Libraries.Configuration
             if (type == null)
                 throw new ArgumentNullException(nameof(type));
 
-            _converters.TryGetValue(type, out TypeConverter converter);
+            TypeConverter converter;
+            _converters.TryGetValue(type, out converter);
             return converter;
         }
     }
