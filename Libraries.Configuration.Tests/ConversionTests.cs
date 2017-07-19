@@ -139,7 +139,7 @@ namespace Libraries.Configuration.Tests
         }
 
         [TestMethod]
-        public void ConvertToList()
+        public void ConvertToIList()
         {
             string array = "1, 2, 3, 4, 5";
             Assert.IsTrue(Converter.ConvertTo<IList<string>>(array).Count() == 5);
@@ -148,6 +148,18 @@ namespace Libraries.Configuration.Tests
             Assert.IsTrue(Converter.ConvertTo<IList<decimal>>(array).Count() == 5);
             Assert.IsTrue(Converter.ConvertTo<IList<uint>>(array).Count() == 5);
             Assert.IsTrue(Converter.ConvertTo<IList<short>>(array).Count() == 5);
+        }
+
+        [TestMethod]
+        public void ConvertToList()
+        {
+            string array = "1, 2, 3, 4, 5";
+            Assert.IsTrue(Converter.ConvertTo<List<string>>(array).Count() == 5);
+            Assert.IsTrue(Converter.ConvertTo<List<int>>(array).Count() == 5);
+            Assert.IsTrue(Converter.ConvertTo<List<float>>(array).Count() == 5);
+            Assert.IsTrue(Converter.ConvertTo<List<decimal>>(array).Count() == 5);
+            Assert.IsTrue(Converter.ConvertTo<List<uint>>(array).Count() == 5);
+            Assert.IsTrue(Converter.ConvertTo<List<short>>(array).Count() == 5);
         }
     }
 }

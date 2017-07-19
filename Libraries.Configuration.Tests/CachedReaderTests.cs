@@ -16,7 +16,6 @@ namespace Libraries.Configuration.Tests
         public void ReadCachedValue()
         {
             var reader = new CachedSettingsReader();
-            Assert.IsTrue(reader.ProviderName == null);
             Assert.IsFalse(reader.Contains("number"));
             var value = reader.Read<int>("number", 5);
             Assert.IsTrue(reader.Contains("number"));

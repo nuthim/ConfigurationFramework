@@ -22,7 +22,12 @@ namespace Libraries.Configuration.Converters
             var elementType = type.IsGenericType ? type.GetGenericArguments() : new[] { type.GetElementType() };
             MethodInfo method = typeof(StringConverterImpl).GetMethod("GetArray", BindingFlags.NonPublic | BindingFlags.Instance);
             MethodInfo generic = method.MakeGenericMethod(elementType);
-            return (T)generic.Invoke(this, new object[] { value, ',' });
+
+            var result = generic.Invoke(this, new object[] { value, ',' });
+            if (type.IsArray || type.IsInterface)
+                return (T)result;
+
+            return (T)Activator.CreateInstance(type, result);
         }
 
         public string ConvertFrom<T>(T value)
